@@ -6,13 +6,17 @@ This repository contains the source code for a simple URL shortener built using 
 - **Shorten URLs:** Generate short, unique identifiers for long URLs.
 - **RESTful API:** Exposes endpoints for creating short URLs and handling redirection.
 - **Frontend Interface:** Includes a simple web interface created with the help of ejs for users to input URLs and get shortened versions.
+- **User Authentication:** Allows user to authenticate and register themselve, check ckick history and other analytics of their short urls.
 - **Error Handling:** Implements robust error handling and validation to ensure smooth user experience.
 
 ## Dependencies
-- **Express:** Fast, unopinionated web framework for Node.js.
-- **ssid:** Library for generating short, unique IDs.
-- **mongoose:** The Database choosen is MongoDB, the repository uses `mongoose` as database driver.
+- **cookie-parser**
+- **dotenv**
 - **ejs:** `ejs` is used to generate the server side rendered pages.
+- **express:** Fast, unopinionated web framework for Node.js.
+- **mongoose:** The Database choosen is MongoDB, the repository uses `mongoose` as database driver.
+- **ssid:** Library for generating short, unique IDs.
+- **uuid**
 
 ## Usage
 1. Clone the repository:
