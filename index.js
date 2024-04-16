@@ -2,7 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv').config();
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const { restrictToLoggedinUserOnly, checkAuth } = require('./middlewares/auth');
+const { checkAuthencation, restrictTo } = require('./middlewares/auth');
 
 const urlRoute = require('./routes/url');
 const userRoute = require('./routes/user');
@@ -24,10 +24,11 @@ app.set('views', path.resolve('./views'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(checkAuthencation);
 
 // Route definitions
-app.use('/url', restrictToLoggedinUserOnly, urlRoute);
+app.use('/url', restrictTo(["user", "admin"]), urlRoute);
 app.use('/user', userRoute);
-app.use('/', checkAuth, staticRoute);
+app.use('/', staticRoute);
 
 app.listen(PORT, () => console.log(`Server Started at PORT: ${PORT}. Click Here: http://127.0.0.1:${PORT}`));
